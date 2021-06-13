@@ -1,0 +1,18 @@
+version: '3'
+services:
+    web:
+      build: .
+      ports:
+      - 5000:5000
+
+    mysql:
+      image: mysql
+      environment:
+        MYSQL_RANDOM_ROOT_PASSWORD: random
+        MYSQL_DATABASE: microblog
+        MYSQL_USER: microblog
+        MYSQL_PASSWORD: pw
+    
+
+    redis-server:
+      image: 'redis'
