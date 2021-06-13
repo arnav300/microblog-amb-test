@@ -13,7 +13,7 @@ This is an example application featured in my [Flask Mega-Tutorial](https://blog
 
 ## Running the Project
 
-- Run the following files using "Kubectl apply -f K8s ."
+- Run the following files using "Kubectl apply -f amb-test ."
 - To check the status of pod use : "Kubectl get pods"
 - Make sure that all pods are in RUNNING state.
 - To get the IP of the minikube, use "minikube ip"
