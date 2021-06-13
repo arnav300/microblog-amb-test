@@ -4,7 +4,8 @@ This is an example application featured in my [Flask Mega-Tutorial](https://blog
 
 - Containertizing the Flask Application using Minikube using below
 
--   <img width="1112" alt="Screenshot 2021-05-24 at 10 40 53" src="https://user-images.githubusercontent.com/29940821/119333065-b9e0f000-bc89-11eb-92e1-73f79918a638.png">
+<img width="1102" alt="Screenshot 2021-06-13 at 19 29 44" src="https://user-images.githubusercontent.com/29940821/121816817-0ebac980-cc7e-11eb-8c6d-1fc1fe38f568.png">
+
 
 
 ## Pre Requisites :
