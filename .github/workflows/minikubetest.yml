@@ -22,6 +22,5 @@ jobs:
         run: |
           kubectl get nodes
           kubectl get pods
-          minikube dashboard
           minikube ip
           
