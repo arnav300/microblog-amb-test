@@ -19,4 +19,7 @@ jobs:
           kubernetes version: 'v1.19.2'
           github token: ${{ secrets.GITHUB_TOKEN }}
       - name: Interact with the cluster
-        run: kubectl get nodes
+        run: 
+          kubectl get nodes
+          kubectl get pods
+          
