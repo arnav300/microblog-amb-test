@@ -41,7 +41,10 @@ jobs:
 
     - name: Install MySQL client
       run: |
-        sudo apt-get mysql-client
+        sudo apt-get update
+        sudo apt-get install mysql-server
+        sudo systemctl start mysql
+
     - name: Cache Poetry
       uses: actions/cache@v1
       id: cache
