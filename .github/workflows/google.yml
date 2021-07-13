@@ -68,6 +68,10 @@ jobs:
         pip install flask_bootstrap
         pip install flask_moment
         pip install flask_babel
+    
+    - name: Installing Elastisearch
+      run:
+        sudo apt install elasticsearch
 
     - name: Install gettext for translations
       run: |
