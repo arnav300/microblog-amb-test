@@ -71,7 +71,7 @@ jobs:
     
     - name: Installing Elastisearch
       run:
-        sudo apt install elasticsearch
+        sudo apt-get install elasticsearch
 
     - name: Install gettext for translations
       run: |
