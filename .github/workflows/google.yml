@@ -61,6 +61,13 @@ jobs:
     - name: Installing Falsk
       run: |
         pip install Flask
+        pip install flask_sqlalchemy
+        pip install flask_migrate
+        pip install flask_login
+        pip install flask_mail
+        pip install flask_bootstrap
+        pip install flask_moment
+        pip install flask_babel
 
     - name: Install gettext for translations
       run: |
