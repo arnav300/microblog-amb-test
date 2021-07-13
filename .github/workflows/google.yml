@@ -79,6 +79,9 @@ jobs:
     - name: Install gettext for translations
       run: |
         sudo apt-get update && sudo apt-get install -y gettext
+    - name: Install Redis
+      run: |
+        sudo apt-get update && sudo apt-get install redis-server
     - name: Test with pytest
       run: |
         python tests.py compilemessages
