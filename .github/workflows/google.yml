@@ -68,6 +68,7 @@ jobs:
         pip install flask_bootstrap
         pip install flask_moment
         pip install flask_babel
+        pip install python-dotenv
     
     - name: Installing Elastisearch
       run: |
