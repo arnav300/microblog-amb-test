@@ -29,4 +29,7 @@ jobs:
           sleep 20
           kubectl apply -f .
           kubectl get pods
+          sleep 100
+          kubectl get pods
+          kubectl get deployments
           
