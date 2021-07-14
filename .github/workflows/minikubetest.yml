@@ -30,6 +30,11 @@ jobs:
           kubectl apply -f .
           kubectl get pods
           sleep 100
-          kubectl get pods
+          kubectl get pods -o wide
+          sleep 500
           kubectl get deployments
+          kubectl get pods -o wide
+          curl `minikube ip`
+          sleep 200
+          kubectl get pods
           
