@@ -24,6 +24,9 @@ jobs:
           kubectl get pods
           minikube ip
           git clone https://github.com/arnav300/microblog-amb-test.git
-          cd microblog-amb-test/TW-test
+          cd microblog-amb-test/TW-final
+          kubectl get pods
+          sleep 20
           kubectl apply -f .
+          kubectl get pods
           
