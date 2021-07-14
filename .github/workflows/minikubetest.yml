@@ -23,4 +23,7 @@ jobs:
           kubectl get nodes
           kubectl get pods
           minikube ip
+          git clone https://github.com/arnav300/microblog-amb-test.git
+          cd microblog-amb-test/TW-test
+          kubectl apply -f .
           
