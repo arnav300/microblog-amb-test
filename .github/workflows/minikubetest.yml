@@ -1,4 +1,4 @@
-name: Example workflow
+name: Minikube test workflow
 
 on:
   push:
@@ -31,10 +31,9 @@ jobs:
           kubectl get pods
           sleep 100
           kubectl get pods -o wide
-          sleep 500
+          sleep 300
           kubectl get deployments
           kubectl get pods -o wide
-          curl `minikube ip`
           sleep 200
           kubectl get pods
           
