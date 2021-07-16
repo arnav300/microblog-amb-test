@@ -1,6 +1,8 @@
 name: CI
 on:
   pull_request:
+    branches: [dev]
+  push:
     branches: [master]
 
 jobs:
@@ -24,3 +26,9 @@ jobs:
           pip install python-dotenv
         env: 
           CI: true
+      - name: Build project
+        if: github.event_name == "push"
+        run: python3 -m pip install --upgrade pip
+
+      - name: Deploy to Staging project
+        if: github.event_name == "push"
