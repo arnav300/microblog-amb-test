@@ -27,8 +27,6 @@ jobs:
         env: 
           CI: true
       - name: Build project
-        if: github.event_name == "push"
+        if: ${{ github.ref == 'refs/heads/dev' }}
         run: python3 -m pip install --upgrade pip
-
-      - name: Deploy to Staging project
-        if: github.event_name == "push"
+        
