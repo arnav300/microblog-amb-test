@@ -1,6 +1,8 @@
 name: CI for microblog
 
 on:
+  pull_request:
+    branches: [master]
   push:
     branches: [master]
 #  workflow_run:
