@@ -29,6 +29,4 @@ jobs:
       - name: Build project
         if: github.event_name == "push"
         run: python3 -m pip install --upgrade pip
-
-      - name: Deploy to Staging project
-        if: github.event_name == "push"
+        
