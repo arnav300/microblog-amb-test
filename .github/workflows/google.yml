@@ -236,4 +236,4 @@ jobs:
             ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_NAME }}
             helm upgrade --install backend ./deploy/helm/backend \
                       --values ./deploy/helm/backend/env.values.${{ env.CLUSTER_ENV }}.yaml \
-                      --set env_values.image_version=${{ env.RELEASE_VERSION }
+                      --set env_values.image_version=${{ env.RELEASE_VERSION }}
