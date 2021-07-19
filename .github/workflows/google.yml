@@ -215,9 +215,7 @@ jobs:
             echo "CLUSTER_ZONE=asia-east1-a" >> $GITHUB_ENV
             echo "PROJECT_NAME=My First Project" >> $GITHUB_ENV
         
-        - name: Install kubectl
-          run: |
-            sudo apt-get install kubectl
+        
         - name: Install helm
           run: |
             curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
