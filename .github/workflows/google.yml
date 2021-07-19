@@ -209,6 +209,6 @@ jobs:
             fi
         - name: Set Cluster credentials
           run: |
-            echo ::set-env name=CLUSTER_NAME::${{ env.CLUSTER_ENV }}
-            echo ::set-env name=CLUSTER_ZONE::asia-east1-a
-            echo ::set-env name=PROJECT_NAME::My First Project   
+            echo "CLUSTER_NAME=${{ env.CLUSTER_ENV }}" >> $GITHUB_ENV
+            echo "CLUSTER_ZONE=asia-east1-a" >> $GITHUB_ENV
+            echo "PROJECT_NAME=My First Project" >> $GITHUB_ENV 
