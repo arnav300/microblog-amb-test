@@ -196,16 +196,18 @@ jobs:
           uses: actions/checkout@v1
         - name: Cluster env for production
           run: |
-            echo ::set-env name=CLUSTER_ENV::prod
+            echo "CLUSTER_ENV=prod" >> $GITHUB_ENV
         - name: Cluster env for staging/dev
           if: "github.event.release.prerelease"
           run: |
             BRANCH=$(git branch -r --contains ${GITHUB_SHA} | grep "")
             MASTER_BRANCH_NAME='origin/master'
             if [[ "$BRANCH" == *"$MASTER_BRANCH_NAME"* ]]; then
-              echo ::set-env name=CLUSTER_ENV::stag
+              echo "CLUSTER_ENV=stage" >> $GITHUB_ENV
+
             else
-              echo ::set-env name=CLUSTER_ENV::dev
+              echo echo "CLUSTER_ENV=dev" >> $GITHUB_ENV
+
             fi
         - name: Set Cluster credentials
           run: |
