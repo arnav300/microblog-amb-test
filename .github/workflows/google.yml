@@ -213,4 +213,28 @@ jobs:
           run: |
             echo "CLUSTER_NAME=${{ env.CLUSTER_ENV }}" >> $GITHUB_ENV
             echo "CLUSTER_ZONE=asia-east1-a" >> $GITHUB_ENV
-            echo "PROJECT_NAME=My First Project" >> $GITHUB_ENV 
+            echo "PROJECT_NAME=My First Project" >> $GITHUB_ENV
+        
+        - name: Install kubectl
+          run: |
+            sudo apt-get install kubectl
+        - name: Install helm
+          run: |
+            curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+            chmod 700 get_helm.sh
+            ./get_helm.sh
+
+        - name: Deploy Release on cluster
+          env:
+            GCLOUD_KEY: ${{ secrets.GCLOUD_KEY_GCP }}
+          run: |
+            echo "$GCLOUD_KEY_GCP" | base64 --decode > ${HOME}/gcloud.json
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud.json
+            gcloud auth configure-docker
+            gcloud container clusters get-credentials \
+            ${{ env.CLUSTER_NAME }} --zone 
+            ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_NAME }}
+            # install/upgrade helm chart
+            helm upgrade --install backend ./deploy/helm/backend \
+                      --values ./deploy/helm/backend/env.values.${{ env.CLUSTER_ENV }}.yaml \
+                      --set env_values.image_version=${{ env.RELEASE_VERSION }
