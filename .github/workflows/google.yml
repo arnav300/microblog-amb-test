@@ -185,3 +185,30 @@ jobs:
           password: ${{ steps.gcloud.outputs.password }}
           registry: ${{ env.DOCKER_REGISTRY }}
           buildargs: SSH_PRIVATE_KEY
+
+
+  deployment:
+      name: Deploy app to cluster
+      runs-on: 'ubuntu-latest'
+      needs: [docker-image]
+      steps:
+        - name: Checkout working branch
+          uses: actions/checkout@v1
+        - name: Cluster env for production
+          run: |
+            echo ::set-env name=CLUSTER_ENV::prod
+        - name: Cluster env for staging/dev
+          if: "github.event.release.prerelease"
+          run: |
+            BRANCH=$(git branch -r --contains ${GITHUB_SHA} | grep "")
+            MASTER_BRANCH_NAME='origin/master'
+            if [[ "$BRANCH" == *"$MASTER_BRANCH_NAME"* ]]; then
+              echo ::set-env name=CLUSTER_ENV::stag
+            else
+              echo ::set-env name=CLUSTER_ENV::dev
+            fi
+        - name: Set Cluster credentials
+          run: |
+            echo ::set-env name=CLUSTER_NAME::${{ env.CLUSTER_ENV }}
+            echo ::set-env name=CLUSTER_ZONE::asia-east1-a
+            echo ::set-env name=PROJECT_NAME::My First Project   
