@@ -95,7 +95,7 @@ jobs:
   Minikube:
      
         name: Example Minikube-Kubernetes Cluster interaction
-        needs: [tests]
+        needs: [tests, docker-image]
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
