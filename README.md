@@ -33,5 +33,8 @@ This is an example application featured in my [Flask Mega-Tutorial](https://blog
 - After making code changes and pushing the code using "git push origin master", you should see a new build triggered in the Travis CI.
 
 
+## Git Hub Actions introduced for CI/CD part using below methodology
+
+<img width="1068" alt="Screenshot 2021-07-16 at 11 57 36" src="https://user-images.githubusercontent.com/29940821/126157603-3eadd6f2-d1f8-4290-ad22-46a6748267b3.png">
 
 
